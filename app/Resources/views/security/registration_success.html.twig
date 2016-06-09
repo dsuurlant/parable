@@ -1,1 +1,5 @@
-<p>Registration successful! <a href="{{ url('login') }}">Go here to login.</a></p>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <p>Registration successful! <a href="{{ url('login') }}">Go here to login.</a></p>
+{% endblock %}

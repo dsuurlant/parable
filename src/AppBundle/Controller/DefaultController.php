@@ -14,6 +14,6 @@ class DefaultController extends Controller
      */
     public function defaultAction()
     {
-        return $this->redirectToRoute("dashboard");
+        return $this->redirectToRoute('dashboard');
     }
 }

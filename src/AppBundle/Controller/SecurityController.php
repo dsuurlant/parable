@@ -16,10 +16,10 @@ class SecurityController extends Controller
      */
     public function loginAction(Request $request)
     {
-        $auth = $this->get('security.authentication_utils');
-        $error = $auth->getLastAuthenticationError();
-        $lastUsername = $auth->getLastUsername();
-
+        $authUtils = $this->get('security.authentication_utils');
+        $error = $authUtils->getLastAuthenticationError();
+        $lastUsername = $authUtils->getLastUsername();
+        
         return $this->render(
             'security/login.html.twig',
             array(
@@ -69,6 +69,38 @@ class SecurityController extends Controller
     {
         return $this->render(
             'security/registration_success.html.twig'
+        );
+    }
+
+    /**
+     * @Route("/reset_password", name="reset_password");
+     */
+    public function resetPasswordAction(Request $request)
+    {
+        // reset password form
+        return $this->render(
+            'security/reset_password.html.twig'
+        );
+    }
+
+    /**
+     * @Route("/forgot_username", name="forgot_username");
+     */
+    public function forgotUsernameAction(Request $request)
+    {
+        // forgot username form
+        return $this->render(
+            'security/forgot_username.html.twig'
+        );
+    }
+
+    /**
+     * @Route("/logout", name="logout");
+     */
+    public function logoutAction(Request $request)
+    {
+        return $this->render(
+            'security/logout.html.twig'
         );
     }
 }
