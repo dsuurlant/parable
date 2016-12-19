@@ -7,9 +7,9 @@ php:
 matrix:
     include:
         - php: 5.6
-          env: DEPENDENCES='dev' SYMFONY_VERSION='3.2.*@dev'
+          env: DEPENDENCIES='dev' SYMFONY_VERSION='3.2.*@dev'
         - php: 7.0
-          env: DEPENDENCES='dev' SYMFONY_VERSION='3.2.*@dev'
+          env: DEPENDENCIES='dev' SYMFONY_VERSION='3.2.*@dev'
 
 before_install:
     - composer self-update
