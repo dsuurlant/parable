@@ -1,21 +1,35 @@
 language: php
 sudo: false
-php:
-    - 5.6
-    - 7.0
+services:
+  - mysql
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
 
 matrix:
-    include:
-        - php: 5.6
-          env: DEPENDENCIES='dev' SYMFONY_VERSION='3.2.*@dev'
-        - php: 7.0
-          env: DEPENDENCIES='dev' SYMFONY_VERSION='3.2.*@dev'
+  fast_finish: true
+  include:
+    - php: 5.5
+    - php: 5.6
+    - php: 7.0
+    - php: hhvm
+  allow_failures:
+    - php: hhvm
+
+env:
+  - DEPENDENCIES='dev' SYMFONY_VERSION='3.2.*@dev' DB=mysql
 
 before_install:
-    - composer self-update
-    - if [ "$DEPENDENCIES" == "dev" ]; then perl -pi -e 's/^}$/,"minimum-stability":"dev"}/' composer.json; fi;
-    - if [ "$SYMFONY_VERSION" != "" ]; then composer --no-update require symfony/symfony:${SYMFONY_VERSION}; fi;
+  - composer self-update
+  - if [ "$DEPENDENCIES" == "dev" ]; then perl -pi -e 's/^}$/,"minimum-stability":"dev"}/' composer.json; fi;
+  - if [ "$SYMFONY_VERSION" != "" ]; then composer --no-update require symfony/symfony:${SYMFONY_VERSION}; fi;
 
-install: composer update $COMPOSER_FLAGS
+install:
+  - composer install
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - php bin/console doctrine:database:create --env=test
+  - php bin/console doctrine:schema:create --env=test
+  - php bin/console doctrine:fixtures:load -n --env=test
 
 script: phpunit
