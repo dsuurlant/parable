@@ -21,12 +21,12 @@ env:
 
 before_install:
   - composer self-update
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS symfony;'
   - if [ "$DEPENDENCIES" == "dev" ]; then perl -pi -e 's/^}$/,"minimum-stability":"dev"}/' composer.json; fi;
   - if [ "$SYMFONY_VERSION" != "" ]; then composer --no-update require symfony/symfony:${SYMFONY_VERSION}; fi;
 
 install:
   - cp app/config/parameters.yml.dist app/config/parameters.yml
-  - php bin/console doctrine:database:create --env=test
   - composer install
   - php bin/console doctrine:schema:create --env=test
   - php bin/console doctrine:schema:update --env=test
