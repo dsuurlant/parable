@@ -1,0 +1,15 @@
+{
+    "name": "parable",
+    "homepage": "https://github.com/dsuurlant/parable",
+    "authors": [
+        "Danielle Suurlant <danielle.suurlant@gmail.com>"
+    ],
+    "description": "parable",
+    "main": "app.php",
+    "license": "MIT",
+    "dependencies": {
+        "bootstrap": "^3.3.7",
+        "jquery": "1.11.*",
+        "font-awesome": "4.1.*"
+    }
+}
