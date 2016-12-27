@@ -2,10 +2,25 @@
 
 @import "base"
 
+/* full height layout */
+html, body
+  height: 100%
+
+#container
+  min-height: 100%
+  overflow: hidden
+
+#navigation, #content, #sidebar
+  margin-bottom: -9999px
+  padding-bottom: 9999px
+
+/* basic styling */
 #container
   font-family: $base-font-family
   font-size: $base-font-size
   color: $base-font-color
+  background-color: $base-bg-color
+  overflow: hidden
 
 a
   color: $base-link-color
@@ -13,8 +28,34 @@ a
 a:hover
   color: $base-link-hover
 
-#logo
-  width: 200px
-  height: 80px
-  background: transparent url($base-logo-image) top left
+#header
+  background-color: $base-bar-one-color
+  padding: 10px 0 10px 0
 
+#body
+  background-color: $base-bg-color
+
+#navigation
+  background-color: $base-bar-two-color
+
+#content
+  background-color: $base-bg-color
+
+.content-block
+  padding: 10px
+
+#sidebar
+  background-color: $base-bar-four-color
+
+.sidebar-block
+  padding: 10px
+
+#logo
+  width: 100px
+  height: 40px
+  background: transparent url($base-logo-image) top left
+  text-indent: -9999px
+
+/* navigation style */
+#navigation-list
+  padding: 10px

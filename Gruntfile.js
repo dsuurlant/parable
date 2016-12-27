@@ -92,6 +92,13 @@ module.exports = function (grunt) {
             js: {
                 files: ['app/Resources/public/js/*.js'],
                 tasks: ['concat', 'uglify']
+            },
+            images: {
+                files: ['app/Resources/public/images/*.png',
+                    'app/Resources/public/images/*.jpg',
+                    'app/Resources/public/images/*.gif',
+                    'app/Resources/public/images/*.ico'],
+                tasks: ['copy']
             }
         }
     });

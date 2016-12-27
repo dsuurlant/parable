@@ -8339,79 +8339,142 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 100%;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
 }
 
 /* line 22, C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
-    line-height: 1;
+  line-height: 1;
 }
 
 /* line 24, C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
-    list-style: none;
+  list-style: none;
 }
 
 /* line 26, C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* line 28, C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
-    text-align: left;
-    font-weight: normal;
-    vertical-align: middle;
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
 }
 
 /* line 30, C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
-    quotes: none;
+  quotes: none;
 }
-
 /* line 103, C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
-    content: "";
-    content: none;
+  content: "";
+  content: none;
 }
 
 /* line 32, C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
-    border: none;
+  border: none;
 }
 
 /* line 116, C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-    display: block;
+  display: block;
 }
 
 /* Default style base */
-/* line 5, ../sass/theme-default.sass */
+/* full height layout */
+/* line 6, ../sass/theme-default.sass */
+html, body {
+  height: 100%;
+}
+
+/* line 9, ../sass/theme-default.sass */
+#container {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+/* line 13, ../sass/theme-default.sass */
+#navigation, #content, #sidebar {
+  margin-bottom: -9999px;
+  padding-bottom: 9999px;
+}
+
+/* basic styling */
+/* line 18, ../sass/theme-default.sass */
 #container {
   font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
   font-size: 0.9em;
   color: #262626;
+  background-color: white;
+  overflow: hidden;
 }
 
-/* line 10, ../sass/theme-default.sass */
+/* line 25, ../sass/theme-default.sass */
 a {
   color: darkorange;
 }
 
-/* line 13, ../sass/theme-default.sass */
+/* line 28, ../sass/theme-default.sass */
 a:hover {
   color: saddlebrown;
 }
 
-/* line 16, ../sass/theme-default.sass */
+/* line 31, ../sass/theme-default.sass */
+#header {
+  background-color: #D9C693;
+  padding: 10px 0 10px 0;
+}
+
+/* line 35, ../sass/theme-default.sass */
+#body {
+  background-color: white;
+}
+
+/* line 38, ../sass/theme-default.sass */
+#navigation {
+  background-color: #E8DBBA;
+}
+
+/* line 41, ../sass/theme-default.sass */
+#content {
+  background-color: white;
+}
+
+/* line 44, ../sass/theme-default.sass */
+.content-block {
+  padding: 10px;
+}
+
+/* line 47, ../sass/theme-default.sass */
+#sidebar {
+  background-color: #D3D5DB;
+}
+
+/* line 50, ../sass/theme-default.sass */
+.sidebar-block {
+  padding: 10px;
+}
+
+/* line 53, ../sass/theme-default.sass */
 #logo {
-  width: 200px;
-  height: 80px;
-  background: transparent url("../images/parable-logo_200px.png") top left;
+  width: 100px;
+  height: 40px;
+  background: transparent url("../images/parable-logo_100px.png") top left;
+  text-indent: -9999px;
+}
+
+/* navigation style */
+/* line 60, ../sass/theme-default.sass */
+#navigation-list {
+  padding: 10px;
 }
