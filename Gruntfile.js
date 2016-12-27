@@ -72,7 +72,19 @@ module.exports = function (grunt) {
                 dest: 'web/assets/json'
             }
         },
+        compass: {
+            dist: {
+                options: {
+                    sassDir: 'app/Resources/public/sass',
+                    cssDir: 'app/Resources/public/css'
+                }
+            }
+        },
         watch: {
+            sass: {
+                files: 'app/Resources/public/sass/*.sass',
+                tasks: ['compass']
+            },
             css: {
                 files: ['app/Resources/public/css/*.css'],
                 tasks: ['concat', 'cssmin']
@@ -85,11 +97,12 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-bowercopy');
+    grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['bowercopy', 'copy', 'concat', 'cssmin', 'uglify', 'watch']);
+    grunt.registerTask('default', ['bowercopy', 'copy', 'compass', 'concat', 'cssmin', 'uglify', 'watch']);
 };

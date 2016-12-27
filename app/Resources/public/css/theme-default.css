@@ -1,0 +1,25 @@
+/* The default theme for the parable application. */
+/* Default style base */
+/* line 5, ../sass/theme-default.sass */
+#container {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  color: #262626;
+}
+
+/* line 10, ../sass/theme-default.sass */
+a {
+  color: darkorange;
+}
+
+/* line 13, ../sass/theme-default.sass */
+a:hover {
+  color: saddlebrown;
+}
+
+/* line 16, ../sass/theme-default.sass */
+#logo {
+  width: 200px;
+  height: 80px;
+  background: transparent url("../images/parable-logo_200px.png") top left;
+}
