@@ -1,14 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} - Dashboard {% endblock %}
-
 {% block navigation %}
-    <ul class="nav nav-tabs">
-        <li class="nav-item active"><a class="nav-link" href="#">Dashboard</a></li>
+    <ul id="main-navigation" class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link" href="{{ path('dashboard') }}">Dashboard</a></li>
         <li class="nav-item"><a class="nav-link" href="#">link</a></li>
         <li class="nav-item"><a class="nav-link" href="#">link</a></li>
         <li class="nav-item"><a class="nav-link" href="#">link</a></li>
-        <li class="nav-item">
+        <li class="nav-item active">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <a class="nav-link" href="{{ path('fos_user_profile_show') }}">Account</a>
             {% else %}s
@@ -20,9 +18,21 @@
 {% endblock %}
 
 {% block body %}
+    {% if app.request.hasPreviousSession and app.session.flashbag.all is not empty %}
+        <div class="content-block">
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <div class="content-block">
-        <h3>Welcome!</h3>
-        <p>This is your dashboard. In time you will see all the relevant info of your most recent work here.</p>
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
     </div>
 {% endblock %}
 

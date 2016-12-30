@@ -10,7 +10,7 @@ html, body
   min-height: 100%
   overflow: hidden
 
-#navigation, #content, #sidebar
+#leftbar, #content, #rightbar
   margin-bottom: -9999px
   padding-bottom: 9999px
 
@@ -29,33 +29,56 @@ a:hover
   color: $base-link-hover
 
 #header
-  background-color: $base-bar-one-color
-  padding: 10px 0 10px 0
-
-#body
-  background-color: $base-bg-color
+  background-color: $base-header-color
 
 #navigation
-  background-color: $base-bar-two-color
+  background-color: $base-nav-bg-color
+  color: $base-nav-font-color
+
+#navigation a
+  color: $base-nav-link-color
+
+#navigation a:hover
+  color: $base-nav-hover-link-color
+
+#leftbar
+  background-color: $base-leftbar-bg-color
+  color: $base-leftbar-font-color
+
+#leftbar a
+  color: $base-leftbar-link-color
+
+#leftbar a:hover
+  color: $base-leftbar-hover-link-color
 
 #content
-  background-color: $base-bg-color
+  background-color: $base-content-bg-color
+  color: $base-content-font-color
+
+#content a
+  color: $base-content-link-color
+
+#content a:hover
+  color: $base-content-hover-link-color
+
+#rightbar
+  background-color: $base-rightbar-bg-color
+  color: $base-rightbar-font-color
+
+#rightbar a
+  color: $base-rightbar-link-color
+
+#rightbar a:hover
+  color: $base-rightbar-hover-link-color
 
 .content-block
-  padding: 10px
-
-#sidebar
-  background-color: $base-bar-four-color
+  padding: $base-padding-medium
 
 .sidebar-block
-  padding: 10px
+  padding: $base-padding-medium
 
 #logo
-  width: 100px
-  height: 40px
+  width: $base-logo-width
+  height: $base-logo-height
   background: transparent url($base-logo-image) top left
   text-indent: -9999px
-
-/* navigation style */
-#navigation-list
-  padding: 10px
