@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{{ app_name }} {% block title %}{% endblock %}</title>
+    <title>{{ app_name }} {% block title %}- {{ page_title }} {% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
@@ -34,7 +34,41 @@
             <div id="logo"></div>
         </div>
         <div class="col-lg-11">
-            <div id="navigation" role="navigation">{% block navigation %}{% endblock %}</div>
+            <div id="navigation" role="navigation">
+                {% block navigation %}
+                    <ul class="nav nav-tabs">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li class="nav-item {% if page_title starts with 'Dashboard' %}active{% endif %}">
+                                <a class="nav-link" href="{{ path('dashboard') }}">Dashboard</a>
+                            </li>
+                            <li class="nav-item {% if page_title starts with 'Story' %}active{% endif %}">
+                                <a class="nav-link" href="{{ path('story_list') }}">Stories</a>
+                            </li>
+                            <li class="nav-item {% if page_title == 'Tags' %}active{% endif %}">
+                                <a class="nav-link" href="#">Tags</a>
+                            </li>
+                            <li class="nav-item {% if page_title == 'Media' %}active{% endif %}">
+                                <a class="nav-link" href="#">Media</a>
+                            </li>
+                            <li class="nav-item {% if page_title == 'Themes' %}active{% endif %}">
+                                <a class="nav-link" href="#">Themes</a>
+                            </li>
+                            <li class="nav-item {% if page_title == 'Tools' %}active{% endif %}">
+                                <a class="nav-link" href="#">Tools</a>
+                            </li>
+                            <li class="nav-item {% if page_title == 'Account' %}active{% endif %}">
+                                <a class="nav-link" href="{{ path('fos_user_profile_show') }}">Account</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item active">
+                                <a class="nav-link"
+                                   href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                            </li>
+                        {% endif %}
+                        </li>
+                    </ul>
+                {% endblock %}
+            </div>
         </div>
     </div>
     <div class="row" id="body">

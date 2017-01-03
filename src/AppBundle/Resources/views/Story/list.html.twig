@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="content-block">
+        <h3>Welcome!</h3>
+        {% if stories|length > 0 %}
+            {% for story in stories %}
+                <div class="block story-block">
+                    <span class="story-header">{{ story.title }}</span>
+                    <span class="story-updated-at">{{ story.updatedAt|date }}</span>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>You don't have any stories yet.</p>
+            <p><a class="button-link" href="{{ path('story_create') }}">Create a story now!</a></p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block leftbar %}
+    <div class="sidebar-block">
+        <p>Placeholder for left sidebar content.</p>
+    </div>
+{% endblock %}
+
+{% block rightbar %}
+    <div class="sidebar-block">
+        <p>Placeholder for right sidebar content.</p>
+    </div>
+{% endblock %}
